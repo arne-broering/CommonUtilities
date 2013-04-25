@@ -3,7 +3,7 @@ import java.util.Iterator;
 
 /**
  * @author <a href="mailto:broering@52north.org">Arne Broering</a>
- */
+ */  
 public class ArrayUtils {
 
     public static String[] toArray(Collection<String> stringCollection) {
