@@ -55,4 +55,21 @@ public class ArrayUtils {
 
         return newToArray;
     }
+    
+    /**
+     * produces a single String representation of a stringArray.
+     */
+    public static String arrayToString(String[] stringArray) {
+        StringBuffer stringRep = new StringBuffer();
+        stringRep.append("[");
+        for (int i = 0; i < stringArray.length; i++) {
+            stringRep.append(stringArray[i]);
+            
+            if (i < stringArray.length) {
+                stringRep.append(",");
+            }
+        }
+        stringRep.append("]");
+        return stringRep.toString();
+    }
 }
