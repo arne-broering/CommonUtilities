@@ -1,3 +1,4 @@
+package org.n52.util;
 /**
  * @author <a href="mailto:broering@52north.org">Arne Broering</a>
  */
@@ -10,7 +11,7 @@ public class StringUtils {
      * @param wordToUse
      * @return
      */
-    public static StringBuffer replaceWordInString(StringBuffer baseString, String wordToFind, String wordToUse)
+    public static StringBuilder replaceWordInString(StringBuilder baseString, String wordToFind, String wordToUse)
     {
         int i = baseString.indexOf(wordToFind);
         while(i != -1) {

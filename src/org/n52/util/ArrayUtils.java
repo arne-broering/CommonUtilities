@@ -1,3 +1,4 @@
+package org.n52.util;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -60,7 +61,7 @@ public class ArrayUtils {
      * produces a single String representation of a stringArray.
      */
     public static String arrayToString(String[] stringArray) {
-        StringBuffer stringRep = new StringBuffer();
+        StringBuilder stringRep = new StringBuilder();
         stringRep.append("[");
         for (int i = 0; i < stringArray.length; i++) {
             stringRep.append(stringArray[i]);
