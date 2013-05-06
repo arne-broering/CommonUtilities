@@ -1,6 +1,7 @@
 package org.n52.util;
 
 import java.io.InputStream;
+import java.io.StringReader;
 import java.io.StringWriter;
 
 import javax.xml.transform.OutputKeys;
@@ -39,21 +40,35 @@ public class StringUtils {
     
     /**
      * Takes an InputStream containing a String and converts it to pretty XML using the specified indent.
-     * 
-     * @param in
-     * @param indent
-     * @return
-     * @throws TransformerException
+     * @throws TransformerException 
      */
-    public static String prettyFormatAsXML(InputStream in, int indent) throws TransformerException {
-        Source xmlInput = new StreamSource(in);
+    public static String prettyFormatAsXML(InputStream inputStreamString, int indent) throws TransformerException {
+        return prettyFormatAsXML(new StreamSource(inputStreamString), indent);
+    }
+    
+    /**
+     * Takes a String and converts it to pretty XML using the specified indent.
+     * @throws TransformerException 
+     */
+    public static String prettyFormatAsXML(String inputString, int indent) throws TransformerException {
+        return prettyFormatAsXML(new StreamSource(new StringReader(inputString)), indent);
+    }
+    
+    /**
+     * Takes a javax.xml.transform.Source containing a String and converts it to pretty XML using the specified indent.
+     * @throws TransformerException 
+     */
+    public static String prettyFormatAsXML(Source xmlInput, int indent) throws TransformerException {
         StringWriter stringWriter = new StringWriter();
         StreamResult xmlOutput = new StreamResult(stringWriter);
+        
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         transformerFactory.setAttribute("indent-number", indent);
         Transformer transformer = transformerFactory.newTransformer(); 
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        
         transformer.transform(xmlInput, xmlOutput);
+        
         return xmlOutput.getWriter().toString();
     }
     

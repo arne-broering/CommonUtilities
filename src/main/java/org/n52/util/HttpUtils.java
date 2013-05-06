@@ -33,7 +33,7 @@ public class HttpUtils {
 
         httpClient.executeMethod(method);
 
-        LOGGER.info("GET-method sended to: " + method.getURI());
+        LOGGER.info("GET-method sent to: " + method.getURI());
 
         is = method.getResponseBodyAsStream();
 
@@ -51,7 +51,7 @@ public class HttpUtils {
 
         httpClient.executeMethod(method);
 
-        LOGGER.info("GET-method sended to: " + method.getURI());
+        LOGGER.info("GET-method sent to: " + method.getURI());
 
         is = method.getResponseBodyAsStream();
 
