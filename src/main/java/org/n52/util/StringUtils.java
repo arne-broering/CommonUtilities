@@ -62,10 +62,9 @@ public class StringUtils {
         StringWriter stringWriter = new StringWriter();
         StreamResult xmlOutput = new StreamResult(stringWriter);
         
-        TransformerFactory transformerFactory = TransformerFactory.newInstance();
-        transformerFactory.setAttribute("indent-number", indent);
-        Transformer transformer = transformerFactory.newTransformer(); 
+        Transformer transformer = TransformerFactory.newInstance().newTransformer(); 
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
         
         transformer.transform(xmlInput, xmlOutput);
         
